@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>헌혈 자격 조건</title>
+
+</head>
+<body>
+<h1>헌혈 조건 체크</h1>
+
+나이 : <input type="text" id="age" />세<br>
+성별 : <input type="radio" name="gender" id="male" checked/>남자
+<input type="radio" name="gender" id="female" />여자<br>
+몸무게 : <input type="text" id="weight" />kg<br><br>
+
+<input type="button" value="헌혈 조건 체크" onclick="clicked()">
+<p id="checked"></p>
+
+<script>
+function clicked(){
+	var age = document.getElementById("age").value;
+	var weight = document.getElementById("weight").value;
+
+	if(Number(age)<16 || Number(age)>69){
+		document.getElementById("checked").innerHTML="연령 부적합";
+		return;
+	}
+	
+	if(document.getElementById("male").checked){
+		if(Number(weight)<50){
+			document.getElementById("checked").innerHTML="제충 미달";
+		} else {
+			document.getElementById("checked").innerHTML="헌혈 가능합니다.";
+		}
+	}
+	if(document.getElementById("female").checked){
+		if(Number(weight)<45){
+			document.getElementById("checked").innerHTML="제충 미달";
+		} else {
+			document.getElementById("checked").innerHTML="헌혈 가능합니다.";
+		}
+	}
+}
+</script>
+</body>
+</html>
