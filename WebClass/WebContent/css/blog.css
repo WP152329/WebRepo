@@ -1,0 +1,37 @@
+@CHARSET "utf-8";
+
+div.container {
+	padding-top: 30px;
+	text-align: center;
+}
+
+.firstHello{
+	text-align: center;
+	color: black;
+}
+.beforeJoinMessage{
+	text-align: center;
+	color: gray;
+}
+div.form-check{
+	text-align: center;
+}
+
+#who{
+	padding-top: 30px;
+	text-align: center;
+}
+
+.aboutMe{
+	color: gray;
+}
+
+.bookImage{
+	width: 300px;
+	height: 450px;
+}
+
+.singerImage{
+	width: 1200px;
+	height: 742px;
+}
