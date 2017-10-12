@@ -1,3 +1,6 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ page import="org.dimigo.vo.UserVO"%>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -45,20 +48,37 @@
 				<li class="nav-item" onmouseover="menu_on(this);"
 					onmouseout="menu_out(this);"><a class="nav-link"
 					href="./interest.html">Interest?</a></li>
-				
+
 			</ul>
 			<!-- Login Form -->
-			<form class="form-inline my-2 my-lg-0" id="loginForm">
-			<!-- 
-				<input class="form-control mr-sm-2" type="text" placeholder="ID"
-					aria-label="ID" id="id" required> <input
-					class="form-control mr-sm-2" type="password" placeholder="PWD"
-					aria-label="PWD" id="pwd" required>
-				<button class="btn btn-outline-success my-2 my-sm-0" type="submit">LOGIN</button>
+			<%
+				UserVO user = (UserVO) session.getAttribute("user");
+				if (user == null) {
+			%>
+				<a class="btn btn-dark" href="/WebClass/bloglogin" role="button">Login</a>
+			<%
+				} else {
+			%>
+			<%-- 세션에 사용자 정보가 있는 경우 --%>
+			<ul class="navbar-nav flex-row ml-md-auto d-none d-md-flex">
+				<li class="nav-item dropdown"><a
+					class="nav-item nav-link dropdown-toggle mr-md-2" href="#"
+					id="bd-versions" data-toggle="dropdown" aria-haspopup="true"
+					aria-expanded="false"> <%=user.getName()%>님
+				</a>
+					<div class="dropdown-menu dropdown-menu-right"
+						aria-labelledby="bd-versions">
+						<form action="/WebClass/bloglogout" method="post">
+							<button type="submit" class="dropdown-item">Sign out</button>
+						</form>
+						
+					</div></li>
+			</ul>
+			<%
+				}
+			%>
 			
-			 -->
-			<a class="btn btn-dark" href="#" role="button">Login</a>
-			</form>
+
 		</div>
 	</nav>
 
