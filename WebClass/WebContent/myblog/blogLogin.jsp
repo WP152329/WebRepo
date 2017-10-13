@@ -73,7 +73,7 @@
 		myModal.find('.modal-body').text('Invalid username or password');
 		myModal.modal();
 		$('#inputEmail').val('<%=request.getParameter("id") %>');
-		$('#inputPassword').val('<%=request.getParameter("pwd") %>');
+		
 	<%}%>
 		
 	</script>
